@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* ── Fonts ── */
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+html, body {
+  background-color: #FAFAFA;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fira Code for all monospace / label elements */
+code, pre,
+.font-mono {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Chart axis labels rendered as SVG text — inherit Fira Code */
+svg text {
+  font-family: 'Fira Code', monospace !important;
+}
+
+/* ── Blog post prose ── */
+.post-prose h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #E2E8F0;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+  scroll-margin-top: 6rem;
+}
+
+.post-prose p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.post-prose a {
+  color: #60A5FA;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-prose a:hover {
+  color: #93C5FD;
+}
+
+.post-prose code {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: #60A5FA;
+  background: rgba(96, 165, 250, 0.10);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.post-prose pre {
+  background: #0d1117;
+  border: 1px solid #1E2533;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+}
+
+.post-prose pre code {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  color: #E2E8F0;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  line-height: 1.7;
+}
+
+.post-prose ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+}
+
+.post-prose li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #64748B;
+  line-height: 1.7;
+  margin-bottom: 0.25rem;
+}
+
+.post-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 13px;
+}
+
+.post-prose th {
+  text-align: left;
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4A5568;
+  padding: 8px 12px;
+  border-bottom: 1px solid #1E2533;
+}
+
+.post-prose td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #1E2533;
+  color: #64748B;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+}
+
+.post-prose blockquote {
+  border-left: 3px solid #3B82F6;
+  padding-left: 1rem;
+  color: #4A5568;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.post-prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 0.75rem;
+  border: 1px solid #1E2533;
+}
+
+/* ── post-prose light-theme overrides ── */
+.post-prose-light h2          { color: #171717; }
+.post-prose-light p           { color: #374151; }
+.post-prose-light li          { color: #374151; }
+.post-prose-light blockquote  { color: #6b7280; }
+.post-prose-light td          { color: #374151; border-bottom-color: #e5e7eb; }
+.post-prose-light th          { color: #6b7280; border-bottom-color: #e5e7eb; }
+.post-prose-light pre         { background: #f6f8fa; border-color: #e5e7eb; }
+.post-prose-light pre code    { color: #1f2937; }
+.post-prose-light code        { color: #1d4ed8; background: rgba(59,130,246,0.08); }
+.post-prose-light a           { color: #2563eb; }
+.post-prose-light a:hover     { color: #1d4ed8; }
+.post-prose-light img         { border-color: #e5e7eb; }
+
+/* ── Hide scrollbar, keep scroll functionality ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Thin custom scrollbar (horizontal scroll containers) ── */
+.thin-scrollbar::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+/* Firefox */
+.thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+
+/* ── Card highlight flash (mode-switch scroll sync) ── */
+@keyframes card-sync-flash {
+  0%   { box-shadow: 0 0 0 0   rgba(59, 130, 246, 0.0); }
+  20%  { box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.55); }
+  100% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0.0); }
+}
+.card-flash {
+  animation: card-sync-flash 0.85s ease-out forwards;
+}
